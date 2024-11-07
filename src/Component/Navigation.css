@@ -1,0 +1,200 @@
+.navigation-container {
+  position: static;
+
+}
+
+.toggle-btn {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 1rem;
+  right: 1rem; /* Move to the right */
+  z-index: 1030;
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn.menu-open {
+  transform: rotate(180deg);
+  background-color: #fff !important;
+  color: #209cff !important;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.menu-open .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.navigation-menu {
+ 
+  padding: 1rem; /* Add padding for vertical spacing */
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  width: 250px; /* Set a fixed width for the vertical menu */
+  height:100%; /* Let height adjust automatically */
+  position: fixed; /* Fix position to the left */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+}
+
+.nav-items-container {
+  display: flex;
+  flex-direction: column; /* Change to column for vertical layout */
+  gap: 2rem; /* Adjust gap for vertical spacing */
+  align-items: flex-start; /* Align items to the start */
+}
+
+.nav-item {
+  cursor: pointer;
+  padding: 0.75rem 1rem; /* Adjust padding for better touch targets */
+  border-radius: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  opacity: 0;
+  animation: fadeInUp 0.5s forwards;
+  width: 100%; /* Make items full width */
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.nav-item.active {
+  background: rgb(255, 255, 255);
+  transform: scale(1.1);
+}
+
+.nav-link-custom {
+  color: rgb(6, 165, 239);
+  text-decoration: none;
+  width: 100%; /* Make link full width */
+  display: block; /* Block display for full clickable area */
+}
+
+.active .nav-link-custom {
+  color: #121213;
+}
+
+.icon-container {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.active .icon-container {
+  transform: scale(1.2) rotate(360deg);
+}
+
+.nav-label {
+  font-size: 0.875rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.nav-label.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+  .toggle-btn {
+    display: flex; /* Show only on mobile */
+  }
+
+  .navigation-menu {
+    width: 75px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateX(-100%);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1020;
+    border-radius: 0;
+  }
+
+  .navigation-menu.show {
+    transform: translateX(0);
+  }
+
+  .nav-items-container {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding-top:  4rem;
+  }
+
+  .nav-item {
+    padding: 1rem;
+    transform: translateX(-100px);
+  }
+
+  .navigation-menu.show .nav-item {
+    transform: translateX(0);
+  }
+
+  .nav-label {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  .active .nav-label {
+    opacity: 1;
+  }
+}
+
+/* Animation for items */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect for desktop */
+@media (min-width: 768px) {
+  .nav-item:hover .nav-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .nav-item:hover .icon-container {
+    transform: scale(1.1) translateY(-3px);
+  }
+
+  .navigation-menu {
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* New animations for toggle button */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(32, 156, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(32, 156, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(32, 156, 255, 0);
+  }
+}
+
+.toggle-btn:not(.menu-open) {
+  animation: pulse 2s infinite;
+}
