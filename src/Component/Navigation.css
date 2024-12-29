@@ -1,159 +1,177 @@
+/* General styles */
 .navigation-container {
-  position: static;
-
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: top 0.3s ease-in-out;
 }
 
 .toggle-btn {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
-  top: 1rem;
-  right: 1rem; /* Move to the right */
+  right: 1rem;
   z-index: 1030;
-  padding: 0.5rem;
+  padding: 0.3rem;
   width: 40px;
   height: 40px;
-  align-items: center;
-  justify-content: center;
   border-radius: 50%;
-  transition: all 0.3s ease;
+  background-color: #209cff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .toggle-btn.menu-open {
-  transform: rotate(180deg);
-  background-color: #fff !important;
-  color: #209cff !important;
+  background-color: #fff;
+  color: #209cff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .toggle-icon {
+  font-size: 1.5rem;
   transition: transform 0.3s ease;
 }
 
-.menu-open .toggle-icon {
-  transform: rotate(180deg);
+/* Mobile/Tablet view */
+.navigation-menu {
+  display: flex;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  padding-top: 50px;
+  z-index: 1040;
 }
 
-.navigation-menu {
- 
-  padding: 1rem; /* Add padding for vertical spacing */
-  border-radius: 10px;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  width: 250px; /* Set a fixed width for the vertical menu */
-  height:100%; /* Let height adjust automatically */
-  position: fixed; /* Fix position to the left */
-  top: 0; /* Align to the top */
-  left: 0; /* Align to the left */
+.navigation-menu.show {
+  transform: translateX(0);
 }
 
 .nav-items-container {
   display: flex;
-  flex-direction: column; /* Change to column for vertical layout */
-  gap: 2rem; /* Adjust gap for vertical spacing */
-  align-items: flex-start; /* Align items to the start */
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* Reduced gap */
+  width: 100%; /* Ensure the container takes the full width */
 }
 
 .nav-item {
+  width: 100%;
+  padding: 0.8rem; /* Reduced padding */
+  text-align: center;
   cursor: pointer;
-  padding: 0.75rem 1rem; /* Adjust padding for better touch targets */
-  border-radius: 0.5rem;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  opacity: 0;
-  animation: fadeInUp 0.5s forwards;
-  width: 100%; /* Make items full width */
+  transition: all 0.3s ease;
 }
 
 .nav-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   transform: translateY(-5px);
 }
 
 .nav-item.active {
-  background: rgb(255, 255, 255);
-  transform: scale(1.1);
+  background-color: #f0f0f0;
 }
 
 .nav-link-custom {
-  color: rgb(6, 165, 239);
-  text-decoration: none;
-  width: 100%; /* Make link full width */
-  display: block; /* Block display for full clickable area */
-}
-
-.active .nav-link-custom {
-  color: #121213;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ensure the link takes the full width */
 }
 
 .icon-container {
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.active .icon-container {
-  transform: scale(1.2) rotate(360deg);
+  font-size: 1.9rem; /* Reduced font size */
+  transition: transform 0.3s ease;
+  flex-shrink: 0; /* Prevent the icon from shrinking */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem; /* Adjust the height as needed */
 }
 
 .nav-label {
-  font-size: 0.875rem;
+  font-size: 0.8rem; 
+  margin-top: 0.3rem; 
   opacity: 0;
+  align-items: center;
   transform: translateY(-10px);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.3s ease;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%; 
 }
 
-.nav-label.show {
+.nav-item:hover .nav-label {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Responsive Styles */
+.nav-item.active .icon-container {
+  transform: scale(1.2) rotate(360deg);
+}
+
+.nav-item.active .nav-label {
+  color: #209cff;
+}
+
+/* Mobile styles */
 @media (max-width: 767px) {
   .toggle-btn {
-    display: flex; /* Show only on mobile */
+    display: flex;
   }
 
   .navigation-menu {
-    width: 75px;
-    height: auto;
-    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    height: 100%;
     transform: translateX(-100%);
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    z-index: 1020;
-    border-radius: 0;
   }
 
   .navigation-menu.show {
     transform: translateX(0);
   }
 
+  /* Center the nav items for mobile */
   .nav-items-container {
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    padding-top:  4rem;
+    gap: 1.5rem; /* Increased gap for mobile */
+    justify-content: center; /* Center items horizontally */
   }
 
   .nav-item {
-    padding: 1rem;
-    transform: translateX(-100px);
-  }
-
-  .navigation-menu.show .nav-item {
-    transform: translateX(0);
-  }
-
-  .nav-label {
+    padding: 1rem; /* Increased padding for mobile */
+    text-align: center;
     opacity: 0;
-    transform: translateY(0);
+    animation: fadeInUp 0.5s ease forwards;
+    transform: translateY(20px);
   }
 
-  .active .nav-label {
-    opacity: 1;
+  .nav-item:nth-child(1) { animation-delay: 0.1s; }
+  .nav-item:nth-child(2) { animation-delay: 0.2s; }
+  .nav-item:nth-child(3) { animation-delay: 0.3s; }
+  .nav-item:nth-child(4) { animation-delay: 0.4s; }
+  .nav-item:nth-child(5) { animation-delay: 0.5s; }
+  .nav-item:nth-child(6) { animation-delay: 0.6s; }
+  .nav-item:nth-child(7) { animation-delay: 0.7s; }
+
+  .icon-container {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem; /* Adjust the height as needed */
   }
 }
 
-/* Animation for items */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -165,36 +183,67 @@
   }
 }
 
-/* Hover effect for desktop */
+/* Desktop and Tablet view (>= 768px) */
 @media (min-width: 768px) {
-  .nav-item:hover .nav-label {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .nav-item:hover .icon-container {
-    transform: scale(1.1) translateY(-3px);
+  .toggle-btn {
+    display: none;
   }
 
+  /* Left-aligned fixed navigation for desktop/tablet */
   .navigation-menu {
-    width: auto;
-    max-width: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 160px; /* Reduced width */
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-top: 50px;
   }
-}
 
-/* New animations for toggle button */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(32, 156, 255, 0.4);
+  .nav-items-container {
+    display: flex;
+    flex-direction: column; /* Ensure items are vertical */
+    align-items: flex-start; /* Align items to the left */
+    gap: 1.2rem; /* Reduced gap for desktop/tablet */
+    padding-left: 20px; /* Add padding to create space from the edge */
   }
-  70% {
-    box-shadow: 0 0 0 10px rgba(32, 156, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(32, 156, 255, 0);
-  }
-}
 
-.toggle-btn:not(.menu-open) {
-  animation: pulse 2s infinite;
+  .nav-item {
+    padding: 0.8rem; /* Reduced padding for desktop/tablet */
+    width: 100%;
+    text-align: left;
+    opacity: 1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+
+  .nav-item.active {
+    background-color: transparent;
+    color: #209cff;
+  }
+
+  .nav-item .icon-container {
+    font-size: 1.8rem;
+    margin-right: 0.8rem;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem; /* Adjust the height as needed */
+  }
+
+  .nav-item .nav-label {
+    font-size: 0.9rem; /* Increased font size for desktop/tablet */
+    white-space: nowrap; /* Prevent the label from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Show ellipsis if label is too long */
+    width: 100%; /* Ensure the label takes the full width */
+  }
 }

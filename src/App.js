@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, HashRouter as Router, Routes } from 'react-router-dom'; // Use HashRouter here
 import './App.css';
 import About from './Component/About';
 import Contact from './Component/Contact';
@@ -9,6 +9,7 @@ import Resume from './Component/Resume';
 import Service from './Component/Service';
 import Test from './Component/Test';
 import Work from './Component/Work';
+
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isContentHidden, setIsContentHidden] = useState(false);
@@ -16,15 +17,15 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       setIsContentHidden(true);
-      setTimeout(() => setIsContentHidden(false), 500); // Duration should match your CSS transition
-    };
+      setTimeout(() => setIsContentHidden(false), 500); 
+        };
 
     const handleClick = () => {
       // Add animation class on click
       const mainContent = document.querySelector('.main-content');
       if (mainContent) {
         mainContent.classList.add('clickable');
-        setTimeout(() => mainContent.classList.remove('clickable'), 300); // Match the duration of the animation
+        setTimeout(() => mainContent.classList.remove('clickable'), 300); 
       }
     };
 
@@ -43,7 +44,7 @@ function App() {
         <Navigation isOpen={isNavOpen} setIsOpen={setIsNavOpen} />
         <main className={`main-content ${isContentHidden ? 'hidden' : ''}`}>
           <Routes>
-            <Route path="/" element={<Test />} /> 
+            <Route path="/" element={<Test />} />
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/work" element={<Work />} />

@@ -16,20 +16,40 @@
   transition: opacity 0.5s ease-in-out; /* Keep this duration */
   min-height: 100vh;
   width: 100%;
-  opacity: 1; /* Default opacity */
+  opacity: 1; 
 }
 
 .main-content.faded {
-  opacity: 0.5; /* Fade out effect */
+  opacity: 0.5; 
+}
+.resume-container {
+  position: relative;
+  left: 100px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 0; 
+  padding-left: 10px;
+  
 }
 
 @media (max-width: 767px) {
   .App.nav-open {
     margin-left: 75px;
   }
+  .resume-container {
+    margin-left: 0; /* Remove margin for mobile screens */
+    padding-left: 10px; /* Adjust padding for small screens */
+  }
   
   .main-content {
     padding: 60px 15px 20px; /* Added top padding for mobile to account for toggle button */
+  }
+}
+
+/* For medium-sized screens (tablets) */
+@media (max-width: 991px) and (min-width: 768px) {
+  .resume-container {
+    margin-left: 50px; /* A smaller margin for tablet screens */
   }
 }
 

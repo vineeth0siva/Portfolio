@@ -16,7 +16,7 @@ const Test = () => {
     { line1: "I am a", line2: "Problem Solver", line3: "Using analytical thinking to turn challenges into opportunities for innovation." },
     { line1: "I am", line2: "Creative", line3: "Bringing unique perspectives to every project and inspiring others to think outside the box." }
   ];
-
+  const frontImage= `${process.env.PUBLIC_URL}/logo192.png`;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Test = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8 }}
                 className="text-center text-md-start"
-                style={{ marginLeft: '40px' }} // Adjust this value as needed
+                style={{ marginLeft: '40px' }} 
               >
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -75,7 +75,7 @@ const Test = () => {
                 className="profile-image-container"
               >
                 <img
-                  src="/img/mylogo.png"
+                  src={frontImage}
                   alt="Profile"
                   className="profile-image"
                 />

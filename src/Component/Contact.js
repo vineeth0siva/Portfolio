@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import React from 'react';
+import { FaGrinBeamSweat } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -26,9 +27,10 @@ const Contact = () => {
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
+                style={{ position: 'relative', left: '80px' }}  
               >
                 <i className="bi bi-geo-alt fs-4"></i>
-                <h4>Location:</h4>
+                <h4 >Location:</h4>
                 <p>Trivandrum</p>
               </motion.div>
               <motion.div
@@ -36,6 +38,7 @@ const Contact = () => {
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
+                style={{ position: 'relative', left: '80px' }} 
               >
                 <i className="bi bi-envelope fs-4"></i>
                 <h4>Email:</h4>
@@ -46,6 +49,7 @@ const Contact = () => {
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
+                style={{ position: 'relative', left: '80px' }} 
               >
                 <i className="bi bi-phone fs-4"></i>
                 <h4>Call:</h4>
@@ -86,7 +90,7 @@ const Contact = () => {
                 Send Message
               </motion.button>
               <div className="my-3">
-                <div className="loading">Loading</div>
+                <div className="loading">Loading... Don't Consider that.. <br></br>Soon i will  get it...  <FaGrinBeamSweat /></div>
                 <div className="error-message"></div>
                 <div className="sent-message">Your message has been sent. Thank you!</div>
               </div>

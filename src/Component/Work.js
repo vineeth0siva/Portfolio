@@ -27,7 +27,7 @@ const Work = () => {
         },
         {
             id: 4,
-            frontImage: `${process.env.PUBLIC_URL}/img/portfolio/venoto1.jpg`,
+            frontImage: `${process.env.PUBLIC_URL}/img/portfolio/TasteItOut1.png`,
             title: 'Personal Project',
             item: 'Personal work'
         }

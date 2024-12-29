@@ -15,35 +15,50 @@ const WorkMapping = ({ card }) => {
     {
       id: 1,
       images: [
-        '/img/portfolio/image_019.jpg',
-        '/img/portfolio/image_020.jpg',
-        '/img/portfolio/image_021.jpg',
-        '/img/portfolio/image_022.jpg',
-        '/img/portfolio/image_023.jpg',
-        '/img/portfolio/image_024.jpg',
-        '/img/portfolio/image_025.jpg',
-        '/img/portfolio/image_026.jpg'
+        `${process.env.PUBLIC_URL}/img/portfolio/image_019.jpg`,
+        `${process.env.PUBLIC_URL}/img/portfolio/image_020.jpg`,
+        `${process.env.PUBLIC_URL}/img/portfolio/image_021.jpg`,
+        `${process.env.PUBLIC_URL}/img/portfolio/image_022.jpg`,
+        `${process.env.PUBLIC_URL}/img/portfolio/image_023.jpg`,
+        `${process.env.PUBLIC_URL}/img/portfolio/image_025.jpg`,
+        `${process.env.PUBLIC_URL}/img/portfolio/image_026.jpg`,
       ]
     },
     {
       id: 2,
       images: [
-        '/img/portfolio/Drawing_1.jpeg',
-        '/img/portfolio/Drawing_2.jpeg',
-        '/img/portfolio/Drawing_3.jpeg',
-        '/img/portfolio/Drawing_4.jpeg'
+        `${process.env.PUBLIC_URL}/img/portfolio/Drawing_1.jpeg`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Drawing_2.jpeg`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Drawing_3.jpeg`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Drawing_4.jpeg`
       ]
     },
     {
       id: 3,
       images: [
-        '/img/portfolio/venato1.png',
-        '/img/portfolio/venato2.png',
-        '/img/portfolio/venato3.png',
-        '/img/portfolio/venato4.png',
-        '/img/portfolio/venato5.png'
+        `${process.env.PUBLIC_URL}/img/portfolio/venato1.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/venato2.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/venato3.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/venato4.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/venato5.png`
+      ]
+    },
+    {
+      id:4,
+      images:[
+        `${process.env.PUBLIC_URL}/img/portfolio/Recipe1.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Recipe2.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Recipe3.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Recipe4.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Recipe5.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Recipe6.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Recipe7.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Recipe8.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Recipe9.png`,
+        `${process.env.PUBLIC_URL}/img/portfolio/Recipe10.png`,
       ]
     }
+
   ];
 
   const getCarouselImages = () => {
